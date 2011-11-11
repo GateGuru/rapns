@@ -54,5 +54,9 @@ module Rapns
       json = as_json.to_json
       [1, id_for_pack, expiry, 0, 32, device_token, 0, json.size, json].pack("cNNccH*cca*")
     end
+    
+    def size_in_bytes
+      to_binary(:for_validation => true).size
+    end
   end
 end
